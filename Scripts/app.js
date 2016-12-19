@@ -4,6 +4,7 @@ Require statements
 
 var http = require("http");
 var fs = require("fs");
+var portNumber = 3000;
 /**
  * Use fs' object readFileSync() method to
  * asynchronously serve the index.html file
@@ -21,5 +22,6 @@ fs.readFileSync('../index.html', function(error, html) {
         response.writeHeader(200, { 'Content-Type': 'text/html' });
         response.write(html);
         response.end();
-    }).listen(3000);
+    }).listen(portNumber);
+    console.log(`Node server running on: ${portNumber}`); //Backtick characters MIGHT cause a problem
 });
